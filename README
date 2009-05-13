@@ -1,0 +1,27 @@
+# SG-Tumblr
+
+This is a very basic class for interacting with the Tumblr API in a very easy OOP way..
+
+Currently only posts of type *regular* is supported.
+
+## Examples
+
+### Read posts
+
+	$tumblr = new SGTumblr('http://my.tumblr.com');
+	$posts = $tumblr->read();
+	foreach( $posts AS $post ) {
+		echo $post->url() . '<br />';
+	}
+
+### Write and publish a post
+
+	$tumblr = new SGTumblr('http://my.tumblr.com', 'my@email.com', 'my-password');
+	$post = $tumblr->create('regular');
+	$post->title( 'Test Post' );
+	$post->body( 'This is a test posts' );
+	$post->post();
+
+### Edit an existing post
+
+** Not implemented yet **
